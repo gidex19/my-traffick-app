@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title> Traffick App</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'traffickapp/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Traffick Counter</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'start' %}">StartTest</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- About section-->
+        <section class="page-section bg-dark text-white" id="header">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Running Experiment in two modes</h2>
+                        <hr class="divider light my-4" />
+                        <ul style="list-style-type: square">
+                            <li class="text-primary">
+                                Run experiment using already obtained traffick values --
+                            </li>
+                            <p>This mode is suitable for you if you already have the traffick data and just want to manage the data or represent the data in different charts</p>
+                            <a class="btn btn-primary btn-xl js-scroll-trigger" href="{% url 'parameters2' %}">Use this mode</a>
+                        </ul>
+                        <ul style="list-style-type: square">
+                                <li class="text-primary">
+                                    Run experiment using our platform to Obtain Traffick values --
+                                </li>
+                                <p>Start Experiment from scratch and obtain traffick values using our functional platform to get data and interpret result using Charts</p>
+                                <a class="btn btn-primary btn-xl js-scroll-trigger" href="{% url 'parameters' %}">Use this mode</a>
+                        </ul>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Gidexdev</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'traffickapp/scripts.js' %}"  ></script>
+    </body>
+</html>
