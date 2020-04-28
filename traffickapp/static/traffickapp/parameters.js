@@ -67,8 +67,8 @@ function timeAction(e) {
     const datenow = new Date()
     //const launchDate = datenow.getDate() 
     const launchDate = datenow
-    //launchDate.setHours(datenow.getHours()+ 1)
-    launchDate.setMinutes(datenow.getMinutes() + 0.5)
+    launchDate.setHours(datenow.getHours()+ 1)
+    //launchDate.setMinutes(datenow.getMinutes() + 0.5)
 
     // Update every second
     const intvl = setInterval(() => {
