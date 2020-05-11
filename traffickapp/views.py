@@ -5,6 +5,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'traffickapp/index.html')
 
+def about(request):
+    return render(request, 'traffickapp/about.html')
+
 def start(request):
     return render(request, 'traffickapp/start.html')
 

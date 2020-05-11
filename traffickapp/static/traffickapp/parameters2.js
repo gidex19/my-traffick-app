@@ -16,9 +16,10 @@ var chartsection = document.getElementById('chartsection')
 var tablesection = document.getElementById('tablesection')
 var chartcontainer = document.getElementById('chartcontainer')
 
-var showchartbtn = document.getElementById('showchart')
+var showchartbtnbar = document.getElementById('showchartbar')
+var showchartbtnline = document.getElementById('showchartline')
+var showchartbtnpie = document.getElementById('showchartpie')
 var showtablebtn = document.getElementById('showtable')
-
 
 chartsection.style.display = 'none'
 
@@ -27,37 +28,75 @@ letsgobtn.addEventListener('click', letsGoAction)
 submitbtn.addEventListener('click', submitAction)
 nextbtn.addEventListener('click', nextAction)
 resetbtn.addEventListener('click', reset)
-showchartbtn.addEventListener('click', showChart)
+showchartbtnline.addEventListener('click', showChart.bind(null, 'line', 'cornflowerblue') )
+showchartbtnbar.addEventListener('click', showChart.bind(null, 'bar', 'blue') )
+showchartbtnpie.addEventListener('click', showChart.bind(null, 'pie', 'blue') )
 showtablebtn.addEventListener('click', showTable)
 
 function showTable(){
-    let table = document.createElement('table')
-    let header = document.createElement('tbody')
-
-    let cv1 = document.createElement('canvas')
-    cv1.id =1
-    let cv2 = document.createElement('canvas')
-    cv2.id =2
-
-    //chartcontainer.appendChild(cv1)
-    //chartcontainer.appendChild(cv2)
-
-    // table.class = 'table table-hover'
-    // table.createTHead().class = 'bgh'
-    // table.createTBody()
-    //console.log(cv)
+    let table_items = document.querySelectorAll('#table_items')
+    table_items.forEach((item)=>{
+        item.remove()
+    })
+    let allcvv = document.querySelectorAll('.cvv')
+    allcvv.forEach((item)=>{
+        item.remove()
+    })
+    tablesection.style.display = 'block'
+    chartsection.style.display = 'none'
+     
+    var table = document.createElement('table')
+    table.id = 'table_items'
+    var countinputs = document.querySelectorAll('.countinput')
+    var itemlength = countinputs.length
+    table.className = 'table table-dark'
+    var theader = document.createElement('thead')
+    var tbody = document.createElement('tbody')
+    var parsed = JSON.parse(window.localStorage.getItem(`expr1`))
+    let vehiclelist = parsed.names
+    let thr = document.createElement('tr')
+    let th1 = document.createElement('th')
+    th1.scope = 'col'
+    th1.innerHTML = 'S/N'
+    thr.appendChild(th1)
+    
+    vehiclelist.forEach((v)=>{
+        let thh = document.createElement('th')
+        thh.scope = 'col'
+        thh.innerHTML = v
+        thr.appendChild(thh)
+    })
+    theader.appendChild(thr)
+    
+    table.appendChild(theader)
+    for (i=1; i<=redo; i++){
+        var parsed = JSON.parse(window.localStorage.getItem(`expr${i}`))
+        let tr = document.createElement('tr')    
+        let th = document.createElement('th')
+        th.scope = 'row'
+        th.innerHTML = i
+        tr.appendChild(th)
+        for (s=1; s<=itemlength; s++){
+            let td = document.createElement('td')
+            td.innerHTML = parsed.counts[s-1]
+            tr.appendChild(td)
+        }
+        tbody.appendChild(tr)
+    }    
+    table.appendChild(tbody)
+    
+    tablesection.appendChild(table)
 }
-function createChart(i){
+function createChart(i, chart_type, dcolor){
+    // dcolor is the color of text and line type of charttype
     var parsed = JSON.parse(window.localStorage.getItem(`expr${i}`))
-    console.log(parsed)
     let vehiclelist = parsed.names
     let counts = parsed.counts
-    console.log(vehiclelist)
-    console.log(counts)
+    
     
     let mychart = document.getElementById(i).getContext('2d');
     let popChart = new Chart(mychart, {
-        type: 'bar',  //others are pie,bar, horizontalBar, line, doughnut, radar, polarArea
+        type: chart_type,  //others are pie,bar, horizontalBar, line, doughnut, radar, polarArea
         data: {
             labels:vehiclelist,
             datasets: [
@@ -77,13 +116,13 @@ function createChart(i){
                 display: true,
                 text:`Chart Representation for Experiment No: ${i}`,
                 fontSize: 20,
-                fontColor: 'black'
+                fontColor: dcolor
             },
             legend:{
                 display: true,
                 position: 'top',
                 labels: {
-                    fontColor: 'pink'
+                    fontColor: 'black'
                     }
             },
             layout:{
@@ -100,27 +139,36 @@ function createChart(i){
 
 }
 
-function showChart(){
+function showChart(chart_type, dcolor){
+    tablesection.style.display = 'none'
+    chartsection.style.display = 'block'
+    let allcvv = document.querySelectorAll('.cvv')
+    allcvv.forEach((item)=>{
+        item.remove()
+    })
+    let table_items = document.querySelectorAll('#table_items')
+    table_items.forEach((item)=>{
+        item.remove()
+    })
     let countinputs = document.querySelectorAll('.countinput')
     var itemlength = countinputs.length
     
     for (i=1; i<=itemlength; i++){
         let cv = document.createElement('canvas')
         cv.id = i
-        cv.className = "mt-3"
-        
+        cv.className = "mt-3 cvv"
         chartcontainer.appendChild(cv)
     }
     let cv = document.createElement('canvas')
     let totalid = itemlength + 1
-    console.log(totalid)
+    //console.log(totalid)
     cv.id = totalid
-    cv.className = "mt-3"
+    cv.className = "mt-3 cvv"
     chartcontainer.appendChild(cv)
     var totallist = []
     var vehiclelist = []
     for (i=1; i<=itemlength; i++){
-        createChart(i)
+        createChart(i, chart_type, dcolor)
     }
     for (i=1; i<=itemlength; i++){
         var parsed = JSON.parse(window.localStorage.getItem(`expr${i}`))
@@ -128,18 +176,11 @@ function showChart(){
         vehiclelist = parsed.names 
         totallist.push(total)
     }
-    console.log(totallist)
-    console.log(vehiclelist)
-//  var parsed = JSON.parse(window.localStorage.getItem(`expr${i}`))
-//     console.log(parsed)
-//     let vehiclelist = parsed.names
-//     let counts = parsed.counts
-//     console.log(vehiclelist)
-//     console.log(counts)
+    
     
      let mychart = document.getElementById(totalid).getContext('2d');
      let popChart = new Chart(mychart, {
-         type: 'bar',  //others are pie,bar, horizontalBar, line, doughnut, radar, polarArea
+         type: chart_type,  //others are pie,bar, horizontalBar, line, doughnut, radar, polarArea
          data: {
              labels:vehiclelist,
              datasets: [
@@ -159,7 +200,7 @@ function showChart(){
                 display: true,
                 text:'Chart Representation for Total vehicles per hour' ,
                 fontSize: 20,
-                fontColor: 'black'
+                fontColor: dcolor
             },
             legend:{
                 display: true,
@@ -216,8 +257,8 @@ function submitAction(e){
     window.localStorage.setItem(`expr${experimentnumber}`,JSON.stringify(result))
     storeditem = window.localStorage.getItem(`expr${experimentnumber}`)
     parseditem = JSON.parse(window.localStorage.getItem(`expr${experimentnumber}`))
-    console.log(storeditem)
-    console.log(parseditem)
+    //console.log(storeditem)
+    //console.log(parseditem)
     countinputs.forEach((countinput)=>{
         countinput.disabled = true})
     disableincrementbtns()
@@ -242,8 +283,14 @@ function nextAction(){
     }
     else{
         nextbtn.textContent = 'Finished'
-        showchartbtn.style.display ='inline'
+        showchartbtnbar.style.display ='inline'
+        showchartbtnline.style.display ='inline'
+        showchartbtnpie.style.display ='inline'
         showtablebtn.style.display ='inline'
+        var tips = document.getElementById('tips')
+        //console.log(tips)
+        tips.style.display = 'block'
+
     }
 
 }
@@ -339,6 +386,7 @@ function createMyDiv(e) {
         btnminus.id = 'minus'
         let inputname = document.createElement('input')
         inputname.type = 'text'
+        
         inputname.className = "form-control inputname " + position
         inputname.placeholder = vehicle
         inputname.disabled = true
@@ -347,6 +395,7 @@ function createMyDiv(e) {
         inputtime.type = 'number'
         inputtime.className = "form-control ml-4 countinput " + position
         inputtime.value = 0
+        inputtime.min = '0'
         prependdiv.appendChild(btnminus)
         appenddiv.appendChild(btnplus)
 

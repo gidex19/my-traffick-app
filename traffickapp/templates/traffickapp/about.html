@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title> Traffick App</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'traffickapp/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Traffick Counter</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'start' %}">StartTest</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'about' %}">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- About section-->
+        <section class="page-section bg-dark text-white" id="header">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Who are we?</h2>
+                        <hr class="divider light my-4" />
+                        <p><span class="text-primary">Gidex DevLabs</span> is a software development company that focuses on using softwares and Tech to Grow Businesses, Build projects and solve Educational, Financial, Medical, and Various other Challenges</p>
+                        <p> Here at Gidex DevLabs, We are fully equipped with software development and Technical skills to handle various challenges.
+                        We offer the following services
+                        </p>
+                        <ul style="list-style-type: square">
+                            <li>Development of Websites and Web Applications</li>
+                            <li>Development of Custom software applications(Android and Desktop) to suit your Needs</li>
+                            <li>Building of Webscrapers and Chatbots </li>
+                            <li>Programming Tutorial sessions to Interested Personnels</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg"
+                            ><img class="img-fluid" src="{% static 'traffickapp/1.jpg' %}" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Project Name</div>
+                            </div></a
+                        >
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg"
+                            ><img class="img-fluid" src="{% static 'traffickapp/2.jpg' %}" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Project Name</div>
+                            </div></a
+                        >
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg"
+                            ><img class="img-fluid" src="{% static 'traffickapp/3.jpg' %}" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Project Name</div>
+                            </div></a
+                        >
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg"
+                            ><img class="img-fluid" src="{% static 'traffickapp/4.jpg' %}" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Project Name</div>
+                            </div></a
+                        >
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg"
+                            ><img class="img-fluid" src="{% static 'traffickapp/5.jpg' %}" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Project Name</div>
+                            </div></a
+                        >
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg"
+                            ><img class="img-fluid" src="{% static 'traffickapp/6.jpg' %}" alt="" />
+                            <div class="portfolio-box-caption p-3">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Project Name</div>
+                            </div></a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="mt-0">Let's Get In Touch!</h2>
+                        <hr class="divider my-4" />
+                        <p class="text-muted mb-5">Ready to start your next project with us?
+                            Ready to Grow your Project with us?
+                            Give us a call, Send us an email, Or Chat us up on whatsapp.
+                            We will be glad to work with you.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                        <div>+234 8164036257</div>
+                    </div>
+                    <div class="col-lg-4 mr-auto text-center">
+                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i
+                        ><!-- Make sure to change the email address in BOTH the anchor text and the link target below!--><a class="d-block" href="mailto:gidexlabz@gmail.com">Gidexlabz@gmail.com</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="page-section bg-dark text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Chat With Us On Whatsapp</h2>
+                <p> We will reply as soon as possible...</p>
+                <a href="https://wa.me/23408164036257" target="_blank" class="btn btn-success btn-xl">Chat Now!</a>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Gidexdev</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'traffickapp/scripts.js' %}"  ></script>
+    </body>
+</html>

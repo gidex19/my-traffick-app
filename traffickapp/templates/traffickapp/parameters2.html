@@ -34,7 +34,7 @@
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'start' %}">StartTest</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'about' %}">About Us</a></li>
                 </ul>
             </div>
         </div>
@@ -128,8 +128,12 @@
                         
                     </form>
                     <div class="text-center">
-                    <button class="btn btn-outline-primary btn-md mb-3" id="showchart" style="display:none" type="button"  >Show Chart</button>
+                    <p class="text-center" id="tips" style="display:none">Charts and Tables are best viewed in landscape mode for mobile devices</p>
+                    <button class="btn btn-outline-primary btn-md mb-3" id="showchartbar" style="display:none" type="button"  >Show Barchart</button>
+                    <button class="btn btn-outline-primary btn-md mb-3" id="showchartline" style="display:none" type="button"  >Show LineChart</button>
+                    <button class="btn btn-outline-primary btn-md mb-3" id="showchartpie" style="display:none" type="button"  >Show PieChart</button>
                     <button class="btn btn-outline-primary btn-md mb-3" id="showtable" style="display:none" type="button"  >Show Table</button>
+                    
                     </div>
                 </div>
             </div>
@@ -142,8 +146,8 @@
             </canvas>
         </div>
     </section>
-    <section class="page-section " id="tablesection"></section>
-        <div class="container">
+    <section class="page-section text-center" id="tablesection"></section>
+        <div class="container text-center pl-1 pr-1 " id="tablecontainer">
             
         </div>
     </section>
@@ -152,7 +156,7 @@
     <!-- Footer-->
     <footer class="bg-light py-5">
         <div class="container">
-            <div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div>
+            <div class="small text-center text-muted">Copyright © 2020 - Gidexdev</div>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
