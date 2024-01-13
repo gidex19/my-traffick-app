@@ -24,7 +24,7 @@ SECRET_KEY = 'mz28!t$gy(upwsig)$8api5d(pswh4-ipp)lxov*$ywr2v!4r)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+#list of all allowed hosts
 ALLOWED_HOSTS = [
     '9e75-102-88-82-170.ngrok-free.app'
 ]
